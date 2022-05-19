@@ -9,14 +9,14 @@
         
         "psr-4":{
             "PHPUnit\\":"vendor/phpunit/phpunit/src/",
-            "ITEC\\DAW\\":"src/clases/"
+            "ITEC\\DAW\\PooPoligono\\":"src/"
         }
     },
     "autoload-dev":{
         
         "psr-4":{
             "PHPUnit\\":"vendor/phpunit/phpunit/src/",
-            "ITEC\\DAW\\":"src/clases/"
+            "ITEC\\DAW\\PooPoligono\\":"src/"
         }
     }
 }
