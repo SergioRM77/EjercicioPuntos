@@ -21,11 +21,27 @@ abstract class Poligono{
      * valida si ese polígono puede tener otro punto más
      */
     abstract public function validateNewPoint():bool;
+
+    /**
+     * número de puntos máximo de ese polígono
+     */
     abstract public function getMaxPoint(): int;
+
+    /**
+     * cuántos puntos tienes actualmente
+     */
     public function getNumPoints():int{
         return count($this->puntos);
     }
+
+    /**
+     * crear punto de manera estática
+     */
     abstract static public function create(array $puntos);
+
+    /**
+     * aññadir un punto a este polígono
+     */
     protected function addPoint(Punto $p){
         if(!$this->validateNewPoint())
             throw new Exception("polígono no válido: Max puntos " . $this->getMaxPoint());

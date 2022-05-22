@@ -17,29 +17,54 @@ class cuadrado extends Poligono{
             $this->addPoint($punto);
         }
     }
+
+    public static  function create(array $puntos){
+        return new cuadrado($puntos);
+    }
+
+    /**
+     * validar si es un cuadrado perfecto
+     */
     private static function validate(array $puntos): bool{
         if(count($puntos) != cuadrado::MaxPoints) return false;
         if(!self::distanciaEntrePuntos($puntos)) return false;
         return true;
     }
 
-    private static function distanciaEntrePuntos($puntos){
+    /**
+     * comprueba si la distancia entre puntos es la misma
+     */
+    private static function distanciaEntrePuntos($puntos): bool{
         
-            $lado1 = $puntos[0]->getDistance($puntos[1]);
-            $lado2 = $puntos[1]->getDistance($puntos[2]);
-            $lado3 = $puntos[2]->getDistance($puntos[3]);
-            $lado4 = $puntos[3]->getDistance($puntos[0]);
+            $lado1 = $puntos[0]->getDistancia($puntos[1]);
+            $lado2 = $puntos[1]->getDistancia($puntos[2]);
+            $lado3 = $puntos[2]->getDistancia($puntos[3]);
+            $lado4 = $puntos[3]->getDistancia($puntos[0]);
             
             return ($lado1 == $lado2) && ($lado3 == $lado4) && 
             ($lado1 == $lado4);
     }
+
     public function validateNewPoint():bool{
-        
+        return count($this->puntos) < cuadrado::MaxPoints;
     }
+
     public function getArea(): float{
-        
+        if(cuadrado::validate($this->puntos)){
+            $lado1 = $this->puntos[0]->getDistancia($this->puntos[1]);
+            $lado2 = $this->puntos[1]->getDistancia($this->puntos[2]);
+            return $lado1 * $lado2;
+        }
+        return 0;
     }
     public function getMaxPoint(): int{
+        return count($this->puntos);
+    }
+
+    /**
+     * comprobar orden de los puntos
+     */
+    public function isCorrectOrder(){
         
     }
 }

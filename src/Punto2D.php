@@ -36,7 +36,7 @@ class Punto2D implements Punto{
     }
 
     /**
-     * mueve la posicion del punto de manera relativa
+     * mueve la posicion del punto de manera relativa [X, Y]
      */
     public function move(array $dimension){//relativo
         $this->x += $dimension[0];
@@ -44,7 +44,7 @@ class Punto2D implements Punto{
     }
 
     /**
-     * mueve la posicion del punto de manera absoluta
+     * mueve la posicion del punto de manera absoluta [X, Y]
      */
     public function moveTo(array $dimension){//absoluto
         $this->x = $dimension[0];
@@ -74,30 +74,67 @@ class Punto2D implements Punto{
         return sqrt($x**2 + $y**2);
     }
 
+    /**
+     * comprueba si tu posicion está a la izquierda del valor a comprobar
+     * @param Punto $p
+     * @return bool
+     */
     public function isLeft(Punto $p){
         [$px, $py] = $p->getPosition();
         return $this->x > $px;
     }
+    /**
+     * comprueba si tu posicion está a la derecha del valor a comprobar
+     * @param Punto $p
+     * @return bool
+     */
     public function isRight(Punto $p){
         [$px, $py] = $p->getPosition();
         return $this->y < $py;
     }
 
+    /**
+     * comprueba si tu posicion está arriba-izquierda del valor a comprobar
+     * @param Punto $p
+     * @return bool
+     */
     public function isUpperLeft(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x < $px && $this->y > $py;
+        //return $this->x < $px && $this->y > $py;
+        return $this->x < $px && $this->y == $py;
     }
+
+    /**
+     * comprueba si tu posicion está arriba-derecha del valor a comprobar
+     * @param Punto $p
+     * @return bool
+     */
     public function isUpperRight(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x > $px && $this->y > $py;
+        //return $this->x > $px && $this->y > $py;
+        return $this->x == $px && $this->y > $py;
     }
+
+    /**
+     * comprueba si tu posicion está abajo-izquierda del valor a comprobar
+     * @param Punto $p
+     * @return bool
+     */
     public function isBottomLeft(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x < $px && $this->y < $py;
+        //return $this->x < $px && $this->y < $py;
+        return $this->x == $px && $this->y < $py;
     }
+
+    /**
+     * comprueba si tu posicion está aabajo-derecha del valor a comprobar
+     * @param Punto $p
+     * @return bool
+     */
     public function isBottomRight(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x > $px && $this->y < $py;
+        //return $this->x > $px && $this->y < $py;
+        return $this->x > $px && $this->y == $py;
     }
 }
 ?>
