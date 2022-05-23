@@ -4,29 +4,29 @@ namespace ITEC\DAW\PooPoligono;
 use Exception;
 use ITEC\DAW\PooPoligono\Poligono;
 
-class cuadrado extends Poligono{
+class rectangulo extends Poligono{
     private const MaxPoints = 4;
     /**
-     * new cuadrado [p1,p2,p3,4]
+     * new rectangulo [p1,p2,p3,p4]
      * Los puntos deben venir dados Izquierda Arriba, Derecha Arriba, Izquierda Abajo, Derecha Debajo
      */
     public function __construct(array $puntos){
         if(!self::validate($puntos))
-        throw new Exception("No es un cuadrado");
+        throw new Exception("No es un rectangulo");
         foreach ($puntos as $punto) {
             $this->addPoint($punto);
         }
     }
 
     public static  function create(array $puntos){
-        return new cuadrado($puntos);
+        return new rectangulo($puntos);
     }
 
     /**
-     * validar si es un cuadrado perfecto
+     * validar si es un rectangulo perfecto
      */
     private static function validate(array $puntos): bool{
-        if(count($puntos) != cuadrado::MaxPoints) return false;
+        if(count($puntos) != rectangulo::MaxPoints) return false;
         if(!self::distanciaEntrePuntos($puntos)) return false;
         return true;
     }
@@ -41,16 +41,15 @@ class cuadrado extends Poligono{
             $lado3 = $puntos[2]->getDistancia($puntos[3]);
             $lado4 = $puntos[3]->getDistancia($puntos[0]);
             
-            return ($lado1 == $lado2) && ($lado3 == $lado4) && 
-            ($lado1 == $lado4);
+            return ($lado1 == $lado3) && ($lado2 == $lado4);
     }
 
     public function validateNewPoint():bool{
-        return count($this->puntos) < cuadrado::MaxPoints;
+        return count($this->puntos) < rectangulo::MaxPoints;
     }
 
     public function getArea(): float{
-        if(cuadrado::validate($this->puntos) &&
+        if(rectangulo::validate($this->puntos) &&
         $this->puntos[0]->isUpperLeft( $this->puntos[1]) &&
         $this->puntos[1]->isUpperRight( $this->puntos[3]) &&
         $this->puntos[3]->isBottomRight( $this->puntos[2]) &&
