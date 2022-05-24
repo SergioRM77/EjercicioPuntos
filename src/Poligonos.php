@@ -20,7 +20,7 @@ abstract class Poligono{
     /**
      * valida si ese polígono puede tener otro punto más
      */
-    abstract public function validateNewPoint():bool;
+    abstract public function validateNewPoint(Punto $p):bool;
 
     /**
      * número de puntos máximo de ese polígono
@@ -43,10 +43,9 @@ abstract class Poligono{
      * aññadir un punto a este polígono
      */
     protected function addPoint(Punto $p){
-        if(!$this->validateNewPoint())
+        if(!$this->validateNewPoint($p))
             throw new Exception("polígono no válido: Max puntos " . $this->getMaxPoint());
         $puntos[] = $p;
-        $this->numPuntos++;
     }
 
 }

@@ -75,66 +75,84 @@ class Punto2D implements Punto{
     }
 
     /**
-     * comprueba si tu posicion está a la izquierda del valor a comprobar
+     * comprueba si un punto $p está encima de este punto
+     * @param Punto $p
+     * @return bool
+     */
+    public function isUpper(Punto $p){
+        [$px, $py] = $p->getPosition();
+        return $this->x == $px  && $this->y < $py;
+    }
+
+    /**
+     * comprueba si un punto $p está debajo de este punto
+     * @param Punto $p
+     * @return bool
+     */
+    public function isUnder(Punto $p){
+        [$px, $py] = $p->getPosition();
+        return $this->x == $px  && $this->y > $py;
+    }
+
+    /**
+     * comprueba tu posicion respecto a un punto izquierda
      * @param Punto $p
      * @return bool
      */
     public function isLeft(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x > $px;
+        return $this->x > $px && $this->y == $py;
     }
     /**
-     * comprueba si tu posicion está a la derecha del valor a comprobar
+     * comprueba tu posicion respecto a un punto derecha
      * @param Punto $p
      * @return bool
      */
     public function isRight(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->y < $py;
+        return $this->x < $px && $this->y == $py;
     }
 
     /**
-     * comprueba si tu posicion está arriba-izquierda del valor a comprobar
+     * comprueba tu posicion respecto a un punto arriba-izquierda
      * @param Punto $p
      * @return bool
      */
     public function isUpperLeft(Punto $p){
         [$px, $py] = $p->getPosition();
-        //return $this->x < $px && $this->y > $py;
-        return $this->x < $px && $this->y == $py;
+        return $this->x > $px && $this->y < $py;
+        
     }
 
     /**
-     * comprueba si tu posicion está arriba-derecha del valor a comprobar
+     * comprueba tu posicion respecto a un punto arriba-derecha
      * @param Punto $p
      * @return bool
      */
     public function isUpperRight(Punto $p){
         [$px, $py] = $p->getPosition();
-        //return $this->x > $px && $this->y > $py;
-        return $this->x == $px && $this->y > $py;
+        return $this->x < $px && $this->y < $py;
+        
     }
 
     /**
-     * comprueba si tu posicion está abajo-izquierda del valor a comprobar
+     * comprueba tu posicion respecto a un punto abajo-izquierda
      * @param Punto $p
      * @return bool
      */
-    public function isBottomLeft(Punto $p){
+    public function isUnderLeft(Punto $p){
         [$px, $py] = $p->getPosition();
-        //return $this->x < $px && $this->y < $py;
-        return $this->x == $px && $this->y < $py;
+        return $this->x > $px && $this->y > $py;
     }
 
     /**
-     * comprueba si tu posicion está aabajo-derecha del valor a comprobar
+     * comprueba tu posicion respecto a un punto abajo-derecha
      * @param Punto $p
      * @return bool
      */
-    public function isBottomRight(Punto $p){
+    public function isUnderRight(Punto $p){
         [$px, $py] = $p->getPosition();
-        //return $this->x > $px && $this->y < $py;
-        return $this->x > $px && $this->y == $py;
+        return $this->x < $px && $this->y > $py;
     }
 }
 ?>
