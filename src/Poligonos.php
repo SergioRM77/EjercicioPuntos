@@ -40,7 +40,7 @@ abstract class Poligono{
     abstract static public function create(array $puntos);
 
     /**
-     * aññadir un punto a este polígono
+     * añadir un punto a este polígono
      */
     protected function addPoint(Punto $p){
         if(!$this->validateNewPoint($p))
