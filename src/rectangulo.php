@@ -3,7 +3,9 @@ namespace ITEC\DAW\PooPoligono;
 
 use Exception;
 use ITEC\DAW\PooPoligono\Poligono;
-
+use ITEC\DAW\PooPoligono\Punto2D;
+include "Poligonos.php";
+include "Punto2D.php";
 class rectangulo extends Poligono{
     private const MaxPoints = 4;
     /**
@@ -15,13 +17,13 @@ class rectangulo extends Poligono{
     }
 
     public static function create(array $puntos){
-        $cuadrado = new cuadrado($puntos);
+        $rectangulo = new rectangulo();
         foreach ($puntos as $punto) {
-            $cuadrado->addPoint($punto);
+            $rectangulo->addPoint($punto);
         }
         if(!self::validate($puntos))
             throw new Exception("No es un rectangulo");
-        return $cuadrado;
+        return $rectangulo;
     }
 
     /**
@@ -79,9 +81,17 @@ class rectangulo extends Poligono{
             return $this->puntos[1]->isUpper($p);
         //si hay 3, este debe quedar a la derecha del numero 4 y el 4 debajo del punto 1
         elseif($this->getNumPoints()==3)
-            return $this->puntos[2]->isRight($p) && $this->puntos[0]->isUnder($p);
+            return $this->puntos[2]->isRight($p) && $this->puntos[0]->isUpper($p);
     }
 
 
 }
+
+$rectangulo[] = Punto2D::create(1,5);
+$rectangulo[] = Punto2D::create(7,5);
+$rectangulo[] = Punto2D::create(7,1);
+$rectangulo[] = Punto2D::create(1,1);
+
+$rectangulo = rectangulo::create($rectangulo);
+echo $rectangulo->getArea();
 ?>

@@ -1,6 +1,7 @@
 <?php
 namespace ITEC\DAW\PooPoligono;
 use ITEC\DAW\PooPoligono\Punto;
+include "Punto.php";
 //implementamos la interfaz punto, nos obliga a tener esas funciones
 class Punto2D implements Punto{
 
@@ -81,7 +82,7 @@ class Punto2D implements Punto{
      */
     public function isUpper(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x == $px  && $this->y < $py;
+        return $this->x == $px  && $this->y > $py;
     }
 
     /**
@@ -91,7 +92,7 @@ class Punto2D implements Punto{
      */
     public function isUnder(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x == $px  && $this->y > $py;
+        return $this->x == $px  && $this->y < $py;
     }
 
     /**
@@ -101,7 +102,7 @@ class Punto2D implements Punto{
      */
     public function isLeft(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x > $px && $this->y == $py;
+        return $this->x < $px && $this->y == $py;
     }
     /**
      * comprueba tu posicion respecto a un punto derecha
@@ -110,7 +111,7 @@ class Punto2D implements Punto{
      */
     public function isRight(Punto $p){
         [$px, $py] = $p->getPosition();
-        return $this->x < $px && $this->y == $py;
+        return $this->x > $px && $this->y == $py;
     }
 
     /**

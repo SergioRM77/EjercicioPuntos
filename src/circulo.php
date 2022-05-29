@@ -3,6 +3,8 @@ namespace ITEC\DAW\PooPoligono;
 
 use Exception;
 use ITEC\DAW\PooPoligono\Poligono;
+include "Poligonos.php";
+include "Punto2D.php";
 class circulo extends Poligono{
     private const MaxPoints = 2;
     /**
@@ -41,3 +43,9 @@ class circulo extends Poligono{
     }
     
 }
+
+$puntocirculo[] = Punto2D::create(1,5);
+$puntocirculo[] = Punto2D::create(5,5);
+$circulo = circulo::create($puntocirculo);
+echo $circulo->getArea();
+?>

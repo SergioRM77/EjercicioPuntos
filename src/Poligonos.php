@@ -45,7 +45,7 @@ abstract class Poligono{
     protected function addPoint(Punto $p){
         if(!$this->validateNewPoint($p))
             throw new Exception("polígono no válido: Max puntos " . $this->getMaxPoint());
-        $puntos[] = $p;
+         return $this->puntos[] = $p;
     }
 
 }
