@@ -1,7 +1,7 @@
 <?php
 namespace ITEC\DAW\PooPoligono;
 use ITEC\DAW\PooPoligono\Punto;
-include "Punto.php";
+
 //implementamos la interfaz punto, nos obliga a tener esas funciones
 class Punto2D implements Punto{
 
@@ -42,6 +42,7 @@ class Punto2D implements Punto{
     public function move(array $dimension){//relativo
         $this->x += $dimension[0];
         $this->y += $dimension[1];
+        return $this;
     }
 
     /**
@@ -50,6 +51,7 @@ class Punto2D implements Punto{
     public function moveTo(array $dimension){//absoluto
         $this->x = $dimension[0];
         $this->y = $dimension[1];
+        return $this;
     }
 
     /**
@@ -59,10 +61,10 @@ class Punto2D implements Punto{
         //los valores devueltos se guardan en un array de valores
         //que luego se pueden usar individualmente
         [$x,$y] = $p->getPosition();
-        $this->moveTo($x,$y);
+        $this->moveTo([$x,$y]);
         //lo mismo que lo siguiente
         //$this->moveTo($p->getPosition());
-    
+        return $this;
     }
 
     /**

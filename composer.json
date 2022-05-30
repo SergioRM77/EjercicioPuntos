@@ -6,18 +6,14 @@
         "phpunit/phpunit": "^9"
     },
     "autoload":{
-        "files": [
-            "src/*.php"
-        ],
+        
         "psr-4":{
             "PHPUnit\\":"vendor/phpunit/phpunit/src/",
             "ITEC\\DAW\\PooPoligono\\":"src/"
         }
     },
     "autoload-dev":{
-        "files": [
-            "src/*.php"
-        ],
+        
         "psr-4":{
             "PHPUnit\\":"vendor/phpunit/phpunit/src/",
             "ITEC\\DAW\\PooPoligono\\":"src/"

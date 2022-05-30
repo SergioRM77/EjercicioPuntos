@@ -3,8 +3,8 @@ namespace ITEC\DAW\PooPoligono;
 
 use Exception;
 use ITEC\DAW\PooPoligono\Poligono;
-include "Poligonos.php";
-include "Punto2D.php";
+include_once "Poligonos.php";
+include_once "Punto2D.php";
 class circulo extends Poligono{
     private const MaxPoints = 2;
     /**

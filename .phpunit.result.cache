@@ -1,0 +1,1 @@
+{"version":1,"defects":{"cuadradoTest::testcuadrado":4,"rectanguloTest::testcuadrado":4,"Punto2DTest::testPunto2D":3,"Punto2DTest::testPunto2D2":3},"times":{"cuadradoTest::testcuadrado":0.005,"rectanguloTest::testcuadrado":0.005,"circuloTest::testcuadrado":0.004,"Punto2DTest::testPunto2D":0.005,"Punto2DTest::testPunto2D2":0}}

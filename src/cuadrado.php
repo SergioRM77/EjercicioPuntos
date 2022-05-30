@@ -1,11 +1,9 @@
 <?php
 namespace ITEC\DAW\PooPoligono;
-
 use Exception;
-use ITEC\DAW\PooPoligono\Poligono;
-use ITEC\DAW\PooPoligono\Punto2D;
-include "Poligonos.php";
-include "Punto2D.php";
+include_once "Poligonos.php";
+include_once "Punto2D.php";
+
 class cuadrado extends Poligono{
     private const MaxPoints = 4;
     /**
@@ -83,16 +81,9 @@ class cuadrado extends Poligono{
         //si hay 3, este debe quedar a la derecha del numero 4 y el 4 debajo del punto 1
         elseif($this->getNumPoints()==3)
             return $this->puntos[2]->isRight($p) && $this->puntos[0]->isUpper($p);
+        return false;
     }
 
 }
 
-
-$arrayCuadrado[] = Punto2D::create(1,5);
-$arrayCuadrado[] = Punto2D::create(5,5);
-$arrayCuadrado[] = Punto2D::create(5,1);
-$arrayCuadrado[] = Punto2D::create(1,1);
-
-$cuadrado = cuadrado::create($arrayCuadrado);
-echo $cuadrado->getArea();
 ?>
