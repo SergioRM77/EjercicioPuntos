@@ -12,7 +12,17 @@ final class circuloTest extends TestCase{
 
         $this->assertEquals((pi() * 4**2), $circulo->getArea());
         $this->assertEquals(2, $circulo->getMaxPoint());
-        $this->assertFalse($circulo->validateNewPoint($punto3));
+        $this->assertTrue($circulo->validateNewPoint($punto3));
+
+    }
+    public function testcirculoExceptio(){
+        $this->expectException(Exception::class);
+        $arrayCuadrado[] = Punto2D::create(1,5);
+        $arrayCuadrado[] = Punto2D::create(5,8);
+        $arrayCuadrado[] = Punto2D::create(10,56);
+        $cuadrado = circulo::create($arrayCuadrado);
+
+        
 
     }
 }

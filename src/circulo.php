@@ -1,10 +1,9 @@
 <?php
 namespace ITEC\DAW\PooPoligono;
-
 use Exception;
 use ITEC\DAW\PooPoligono\Poligono;
-include_once "Poligonos.php";
-include_once "Punto2D.php";
+use ITEC\DAW\PooPoligono\Punto;
+
 class circulo extends Poligono{
     private const MaxPoints = 2;
     /**
@@ -17,17 +16,16 @@ class circulo extends Poligono{
     }
 
     public static function create(array $puntos){
-        $cuadrado = new circulo($puntos);
+        $circulo = new circulo($puntos);
         foreach ($puntos as $punto) {
-            $cuadrado->addPoint($punto);
+            $circulo->addPoint($punto);
         }
         if(!self::validate($puntos))
             throw new Exception("No es un circulo");
-        return $cuadrado;
+        return $circulo;
     }
     private static function validate(array $puntos): bool{
-        if(count($puntos) != circulo::MaxPoints) return false;
-        return true;
+        return (count($puntos) == circulo::MaxPoints);
     }
     public function getArea(): float{
         return pi() * ($this->puntos[0]->getDistancia($this->puntos[1]))**2;
@@ -37,15 +35,8 @@ class circulo extends Poligono{
         return count($this->puntos);
     }
     public function validateNewPoint(Punto $p): bool{
-        if($this->getNumPoints()==0)return true;
-        if($this->getNumPoints()==1)return true;
-        if($this->getNumPoints()>=2)return false;
+        return $this->getNumPoints()<=2;
     }
     
 }
-
-$puntocirculo[] = Punto2D::create(1,5);
-$puntocirculo[] = Punto2D::create(5,5);
-$circulo = circulo::create($puntocirculo);
-echo $circulo->getArea();
 ?>

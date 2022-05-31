@@ -1,6 +1,6 @@
 <?php
 namespace ITEC\DAW\PooPoligono;
-
+use ITEC\DAW\PooPoligono\Punto;
 use Exception;
 
 abstract class Poligono{

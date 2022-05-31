@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2em;
+                background-color: #ffffff;
+                color: #000000;
+            }
+
+            body > ul > li {
+                font-family: Source Serif Pro, PT Sans, Trebuchet MS, Helvetica, Arial;
+                font-size: 2em;
+            }
+
+            h2 {
+                font-family: Tahoma, Helvetica, Arial;
+                font-size: 3em;
+            }
+
+            ul {
+                list-style: none;
+                margin-bottom: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="Punto2DTest">Punto2D</h2>
+        <ul>
+            <li style="color: #555753;">✓ Punto 2 d</li>
+            <li style="color: #555753;">✓ Punto 2 d</li>
+        </ul>
+        <h2 id="circuloTest">circulo</h2>
+        <ul>
+            <li style="color: #555753;">✓ Cuadrado</li>
+            <li style="color: #555753;">✓ Circulo exceptio</li>
+        </ul>
+        <h2 id="cuadradoTest">cuadrado</h2>
+        <ul>
+            <li style="color: #555753;">✓ Cuadrado</li>
+            <li style="color: #555753;">✓ Cuadrado exceptio</li>
+            <li style="color: #555753;">✓ Cuadrado 2 exceptio</li>
+        </ul>
+        <h2 id="rectanguloTest">rectangulo</h2>
+        <ul>
+            <li style="color: #555753;">✓ Cuadrado</li>
+            <li style="color: #555753;">✓ Rectangulo exceptio</li>
+        </ul>
+    </body>
+</html>

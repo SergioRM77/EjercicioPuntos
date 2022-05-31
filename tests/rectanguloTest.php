@@ -18,5 +18,15 @@ final class rectanguloTest extends TestCase{
         $this->assertFalse($rectangulo->validateNewPoint($punto5));
 
     }
+
+    public function testrectanguloExceptio(){
+        $this->expectException(Exception::class);
+        $arrayCuadrado[] = Punto2D::create(1,5);
+
+        $cuadrado = rectangulo::create($arrayCuadrado);
+
+        
+
+    }
 }
 ?>

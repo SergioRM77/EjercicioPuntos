@@ -1,17 +1,16 @@
 <?php
 namespace ITEC\DAW\PooPoligono;
+use ITEC\DAW\PooPoligono\Poligono;
+use ITEC\DAW\PooPoligono\Punto;
 use Exception;
-include_once "Poligonos.php";
-include_once "Punto2D.php";
-
 class cuadrado extends Poligono{
     private const MaxPoints = 4;
     /**
      * new cuadrado [p1,p2,p3,4]
      * Los puntos deben venir dados Izquierda Arriba, Derecha Arriba, Derecha Abajo, Izquierda Debajo
      */
-    public function __construct(){
-        $this->puntos = [];
+    private function __construct(){
+        $this->puntos =[];
     }
 
     public static function create(array $puntos){
@@ -53,8 +52,7 @@ class cuadrado extends Poligono{
 
     public function getArea(): float{
             $lado1 = $this->puntos[0]->getDistancia($this->puntos[1]);
-            $lado2 = $this->puntos[1]->getDistancia($this->puntos[2]);
-            return $lado1 * $lado2;
+            return $lado1 **2;
     }
 
     public function getMaxPoint(): int{
@@ -73,13 +71,13 @@ class cuadrado extends Poligono{
         //si es 0 cualquier punto vale
         if($this->getNumPoints()==0) return true;
         //si hay 1, este debe quedar a la izquierda del punto 2
-        elseif($this->getNumPoints()==1)
+        if($this->getNumPoints()==1)
             return $this->puntos[0]->isLeft($p);
         //si hay 2,este debe quedar encima del punto 3
-        elseif($this->getNumPoints()==2)
+        if($this->getNumPoints()==2)
             return $this->puntos[1]->isUpper($p);
         //si hay 3, este debe quedar a la derecha del numero 4 y el 4 debajo del punto 1
-        elseif($this->getNumPoints()==3)
+        if($this->getNumPoints()==3)
             return $this->puntos[2]->isRight($p) && $this->puntos[0]->isUpper($p);
         return false;
     }

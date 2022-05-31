@@ -3,9 +3,8 @@ namespace ITEC\DAW\PooPoligono;
 
 use Exception;
 use ITEC\DAW\PooPoligono\Poligono;
-use ITEC\DAW\PooPoligono\Punto2D;
-include_once "Poligonos.php";
-include_once "Punto2D.php";
+use ITEC\DAW\PooPoligono\Punto;
+
 class rectangulo extends Poligono{
     private const MaxPoints = 4;
     /**
@@ -74,13 +73,13 @@ class rectangulo extends Poligono{
         //si es 0 cualquier punto vale
         if($this->getNumPoints()==0) return true;
         //si hay 1, este debe quedar a la izquierda del punto 2
-        elseif($this->getNumPoints()==1)
+        if($this->getNumPoints()==1)
             return $this->puntos[0]->isLeft($p);
         //si hay 2,este debe quedar encima del punto 3
-        elseif($this->getNumPoints()==2)
+        if($this->getNumPoints()==2)
             return $this->puntos[1]->isUpper($p);
         //si hay 3, este debe quedar a la derecha del numero 4 y el 4 debajo del punto 1
-        elseif($this->getNumPoints()==3)
+        if($this->getNumPoints()==3)
             return $this->puntos[2]->isRight($p) && $this->puntos[0]->isUpper($p);
         return false;
     }
